@@ -114,7 +114,7 @@ main {
 }
 .hero h1 span { display: block; }
 .hero-slogan {
-  font-size: clamp(44px, 5.7vw, 88px);
+  font-size: clamp(53px, 6.84vw, 106px);
   line-height: 1.23;
   font-weight: 750;
   letter-spacing: -.075em;
@@ -295,7 +295,7 @@ main {
   min-height: 78svh;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
   position: relative;
   z-index: 1;
 }
@@ -307,7 +307,7 @@ main {
 }
 .about h2 {
   margin: auto 0 40px;
-  font: 700 clamp(50px, 6.3vw, 102px)/.95 "Helvetica Neue", "Pretendard", sans-serif;
+  font: 700 clamp(36px, 4.5vw, 73px)/.95 "Helvetica Neue", "Pretendard", sans-serif;
   letter-spacing: -.065em;
 }
 .about-statement {
@@ -330,7 +330,7 @@ main {
 }
 .history h3 {
   margin: 0;
-  font: 700 clamp(58px, 7vw, 108px)/.85 "Helvetica Neue", "Pretendard", sans-serif;
+  font: 700 clamp(36px, 4.5vw, 73px)/.95 "Helvetica Neue", "Pretendard", sans-serif;
   letter-spacing: -.055em;
 }
 .history ol {
@@ -420,7 +420,7 @@ main {
   .hero { padding:100px 18px 34px; justify-content:center; }
   .hero-heading { flex-direction:column; align-items:flex-start; gap:24px; }
   .symbol { flex-basis:auto; width:90px; }
-  .hero-slogan { font-size:clamp(38px,11vw,58px); }
+  .hero-slogan { font-size:clamp(46px,13.2vw,70px); }
   .hero h1 .hero-introduction {
     margin-top:24px;
     padding-left:0;
@@ -440,7 +440,8 @@ main {
   .about-upper { grid-template-columns:1fr; }
   .about-upper > article { padding:90px 18px 50px; }
   .about-intro { min-height:80svh; border-right:0; border-bottom:1px solid rgba(255,255,255,.72); }
-  .about h2 { font-size:10.3vw; margin:auto 0 36px; }
+  .about h2 { font-size:7.35vw; margin:auto 0 36px; }
+  .history h3 { font-size:7.35vw; }
   .about-statement br { display:none; }
   .history { min-height:80svh; }
   .history ol { margin-top:70px; }
