@@ -7,7 +7,14 @@ const projects = [
   { title: "HWF Riso Workshop 01", category: "Workshop", year: "2025", client: "HWF", color: "c-pink", image: "./images/hwf riso workshop_1.jpg", description: "참여자들이 직접 두 가지 별색을 조합하고 인쇄물을 조립하며 리소그래프의 우연성을 경험한 워크숍입니다." },
   { title: "Pan’s Labyrinth", category: "Film the Floor", year: "2025", client: "Personal Project", color: "c-green", image: "./images/flimthefloor_pans labyrnth.jpg", description: "영화의 인상적인 장면과 감각을 새로운 그래픽 언어로 번역한 Film the Floor 시리즈입니다." },
   { title: "Save the Green Planet", category: "Film the Floor", year: "2025", client: "Personal Project", color: "c-yellow", image: "./images/flimthefloor_save the green planet.jpg", description: "영화 속 색과 질감, 서사의 단서를 한 화면 안에 재배치한 Film the Floor 프로젝트입니다." },
-  { title: "The Lobster", category: "Film the Floor", year: "2025", client: "Personal Project", color: "c-coral", image: "./images/flimthefloor_the lobster.jpg", description: "The Lobster의 낯선 분위기와 상징을 시각적 구조와 이미지의 리듬으로 재해석했습니다." }
+  { title: "The Lobster", category: "Film the Floor", year: "2025", client: "Personal Project", color: "c-coral", image: "./images/flimthefloor_the lobster.jpg", description: "The Lobster의 낯선 분위기와 상징을 시각적 구조와 이미지의 리듬으로 재해석했습니다." },
+  { title: "Where Is My Home?", category: "Poster", year: "2026", client: "Poster Project", color: "c-pink", image: "./images/Poster Project 3_idea.jpg", description: "둥지를 떠나는 새의 비행과 방향을 강렬한 핑크, 녹색, 망점 이미지로 표현한 포스터입니다." },
+  { title: "Ohyung", category: "Poster", year: "2026", client: "Ohyung", color: "c-blue", image: "./images/poster_Ohyung_2026.jpg", description: "Ohyung을 위해 제작한 2026년 포스터 프로젝트입니다. 강렬한 이미지와 타이포그래피의 리듬을 함께 구성했습니다." },
+  { title: "Spring Coming Keyring", category: "Goods", year: "2026", client: "Personal Project", color: "c-green", image: "./images/Spring Coming Keyring_2_2026.JPG", description: "봄이 다가오는 감각을 작은 그래픽 오브젝트로 옮긴 키링 프로젝트입니다." },
+  { title: "Concrete Lab", category: "Poster", year: "2026", client: "Concrete Lab", color: "c-lilac", image: "./images/Poster_concretelabflyer_2026.jpg", description: "Concrete Lab의 시각적 리듬과 공간적 인상을 하나의 포스터 화면으로 재구성했습니다." },
+  { title: "Melt Down", category: "Poster", year: "2024", client: "Personal Project", color: "c-coral", image: "./images/Poster_melt down_2024.jpg", description: "Melt Down 프로젝트의 시각 언어를 포스터 형식으로 확장한 2024년 작업입니다." },
+  { title: "Melting Down T-Shirt", category: "Goods", year: "2026", client: "Personal Project", color: "c-sky", image: "./images/MTD Tshirt_2_2026.jpg", description: "MTD의 그래픽 언어를 일상적인 티셔츠 오브젝트로 확장한 2026년 작업입니다." },
+  { title: "Deploy", category: "Poster", year: "2021", client: "Personal Project", color: "c-red", image: "./images/poster_deploy_2021.jpg", description: "이미지와 타이포그래피의 관계를 실험한 2021년 Deploy 포스터 프로젝트입니다." }
 ];
 
 const body = document.body;
@@ -126,8 +133,9 @@ document.addEventListener("keydown", (event) => {
 document.querySelectorAll("[data-filter]").forEach((link) => {
   link.addEventListener("click", () => {
     const type = link.dataset.filter;
-    document.querySelectorAll(".project-card").forEach((card, index) => {
-      const match = projects[index].category.toLowerCase() === type;
+    document.querySelectorAll(".project-card").forEach((card) => {
+      const project = projects[Number(card.dataset.project)];
+      const match = project.category.toLowerCase() === type;
       card.classList.remove("flash");
       if (match) {
         window.setTimeout(() => card.animate(
