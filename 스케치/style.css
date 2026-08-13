@@ -80,10 +80,10 @@ canvas:active { cursor: grabbing; }
 .book-panel {
   position: fixed;
   right: 32px;
-  bottom: 28px;
+  bottom: 32px;
   z-index: 100;
-  width: min(292px, calc(100vw - 64px));
-  padding: 20px;
+  width: min(320px, calc(100vw - 64px));
+  padding: 16px 22px;
   box-sizing: border-box;
   background: #fff;
   color: #000;
@@ -113,30 +113,45 @@ canvas:active { cursor: grabbing; }
   text-transform: uppercase;
 }
 
+.book-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 9px 0 5px;
+  white-space: nowrap;
+}
+
 .book-panel h1 {
-  margin: 11px 0 6px;
-  font-size: clamp(14px, 1.73vw, 22px);
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(13.34px, 1.65vw, 21px);
   line-height: 1.13;
   letter-spacing: -.04em;
 }
 
+.book-heading .book-author {
+  flex: 0 0 auto;
+}
+
 .book-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 19px 0 0;
-  padding-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: clamp(12.65px, 3.8vw, 17.7px);
+  margin: 15px 0 0;
+  padding-top: 13px;
   border-top: 1px solid rgba(0, 0, 0, .2);
 }
 
 .book-details div {
-  min-width: 0;
+  flex: 0 0 auto;
+  text-align: left;
 }
 
 .book-details dt {
   margin-bottom: 5px;
   font-size: 8px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: .1em;
   line-height: 1.32;
   text-transform: uppercase;
@@ -145,8 +160,9 @@ canvas:active { cursor: grabbing; }
 .book-details dd {
   margin: 0;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.32;
+  white-space: nowrap;
 }
 
 @media (max-width: 600px) {
@@ -164,11 +180,11 @@ canvas:active { cursor: grabbing; }
 
   .book-panel {
     right: auto;
-    bottom: 14px;
+    bottom: 20px;
     left: 50%;
-    width: min(70vw, 288px);
+    width: min(74.8vw, 292px);
     max-height: calc(100svh - 90px);
-    padding: 15px;
+    padding: 12px 16.5px;
     border-radius: 12px;
     transform: translate(-50%, calc(100% + 28px));
     transition: opacity .32s ease, transform .42s cubic-bezier(.22,.75,.24,1), visibility 0s linear .42s;
@@ -177,6 +193,18 @@ canvas:active { cursor: grabbing; }
   .book-panel.is-visible {
     transform: translate(-50%, 0);
     transition-delay: 0s;
+  }
+
+  .book-panel h1 {
+    font-size: clamp(17px, 5.4vw, 21px);
+  }
+
+  .book-details dt {
+    font-size: 7px;
+  }
+
+  .book-details dd {
+    font-size: 10px;
   }
 
 }

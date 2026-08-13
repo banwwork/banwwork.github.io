@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>스케치</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=39" />
 </head>
 <body class="portfolio-embed">
   <header class="site-header">
@@ -20,16 +20,26 @@
 
   <aside class="book-panel" id="book-panel" aria-live="polite" aria-hidden="true">
     <p class="book-number" id="book-number"></p>
-    <h1 id="book-title"></h1>
-    <p class="book-author" id="book-author"></p>
+    <div class="book-heading">
+      <h1 id="book-title"></h1>
+      <p class="book-author" id="book-author"></p>
+    </div>
     <dl class="book-details">
       <div>
-        <dt>Pages</dt>
-        <dd id="book-pages"></dd>
+        <dt>Year</dt>
+        <dd id="book-year"></dd>
+      </div>
+      <div>
+        <dt>Format</dt>
+        <dd id="book-format"></dd>
       </div>
       <div>
         <dt>Size</dt>
         <dd id="book-size"></dd>
+      </div>
+      <div>
+        <dt>Pages</dt>
+        <dd id="book-pages"></dd>
       </div>
     </dl>
   </aside>
@@ -44,6 +54,6 @@
   </script>
 
   <!-- 2) 내가 작성하는 코드 -->
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
