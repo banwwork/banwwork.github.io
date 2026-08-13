@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>스케치</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css?v=9" />
+</head>
+<body class="portfolio-embed">
+  <header class="site-header">
+    <a class="logo-link" href="index.html" aria-label="홈으로 이동">
+      <span class="site-wordmark">apple.slice.kr</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a class="active" href="index.html">Books</a>
+    </nav>
+  </header>
+
+  <p class="interaction-hint">만화와 책의 형태에 관한 책</p>
+
+  <aside class="book-panel" id="book-panel" aria-live="polite" aria-hidden="true">
+    <p class="book-number" id="book-number"></p>
+    <h1 id="book-title"></h1>
+    <p class="book-author" id="book-author"></p>
+    <dl class="book-details">
+      <div>
+        <dt>Pages</dt>
+        <dd id="book-pages"></dd>
+      </div>
+      <div>
+        <dt>Size</dt>
+        <dd id="book-size"></dd>
+      </div>
+    </dl>
+  </aside>
+
+<!-- 3D는 전부 JS에서 만듭니다. -->
+  <!-- 1) 한국어 3D 라이브러리 (three.js가 안에 들어있어요 — 따로 설치 안 해도 됩니다) -->
+  <script src="KRthree.js"></script>
+  <script>
+    // 한국어 함수들을 바로 쓸 수 있게 등록합니다. (이 두 줄은 그대로 두세요)
+    Object.assign(window, KCC3D)
+    window.THREE = KCC3D.THREE
+  </script>
+
+  <!-- 2) 내가 작성하는 코드 -->
+  <script src="script.js?v=11"></script>
+</body>
+</html>

@@ -1,22 +1,22 @@
 const projects = [
-  { title: "Melting Down", category: "Printing", year: "2025", client: "Personal Project", color: "c-blue", image: "./images/MTD_book_1.jpg", description: "핑크와 블루 두 가지 색을 중심으로 제작한 리소그래프 북입니다. 녹아내리는 여름의 감각을 인물과 작은 오브젝트의 이야기로 구성했습니다." },
-  { title: "Melting Down Objects", category: "Goods", year: "2025", client: "Personal Project", color: "c-pink", image: "./images/MTD_MD_1.jpg", description: "Melting Down의 그래픽을 일상에서 사용할 수 있는 키링과 작은 오브젝트로 확장한 프로젝트입니다." },
-  { title: "Melting Down Calendar", category: "Goods", year: "2025", client: "Personal Project", color: "c-sky", image: "./images/MTD_MD_2.jpg", description: "프로젝트의 리소그래프 이미지를 작은 캘린더 형태로 재구성해 휴대 가능한 오브젝트로 제작했습니다." },
-  { title: "Fledgling Season", category: "Poster", year: "2026", client: "Poster Project", color: "c-blue", image: "./images/Poster Project 2_idea.jpg", description: "학이 둥지를 떠나 처음 비행하는 시기를 강렬한 블루와 세밀한 드로잉으로 표현한 포스터입니다." },
-  { title: "Think Again", category: "Poster", year: "2026", client: "Poster Project", color: "c-red", image: "./images/Poster Project 1_ Complex.jpg", description: "생각이 많아 방향을 잃는 감각을 달팽이와 뇌, 반복되는 문장으로 시각화한 실험적인 포스터입니다." },
-  { title: "HWF Riso Workshop 01", category: "Printing", year: "2025", client: "HWF", color: "c-pink", image: "./images/hwf riso workshop_1.jpg", description: "참여자들이 직접 두 가지 별색을 조합하고 인쇄물을 조립하며 리소그래프의 우연성을 경험한 워크숍입니다." },
-  { title: "Pan’s Labyrinth", category: "Poster", year: "2025", client: "Personal Project", color: "c-green", image: "./images/flimthefloor_pans labyrnth.jpg", description: "영화의 인상적인 장면과 감각을 새로운 그래픽 언어로 번역한 Film the Floor 시리즈입니다." },
-  { title: "Save the Green Planet", category: "Poster", year: "2025", client: "Personal Project", color: "c-yellow", image: "./images/flimthefloor_save the green planet.jpg", description: "영화 속 색과 질감, 서사의 단서를 한 화면 안에 재배치한 Film the Floor 프로젝트입니다." },
-  { title: "The Lobster", category: "Poster", year: "2025", client: "Personal Project", color: "c-coral", image: "./images/flimthefloor_the lobster.jpg", description: "The Lobster의 낯선 분위기와 상징을 시각적 구조와 이미지의 리듬으로 재해석했습니다." },
-  { title: "Where Is My Home?", category: "Poster", year: "2026", client: "Poster Project", color: "c-pink", image: "./images/Poster Project 3_idea.jpg", description: "둥지를 떠나는 새의 비행과 방향을 강렬한 핑크, 녹색, 망점 이미지로 표현한 포스터입니다." },
-  { title: "OHYUNG Seendosi", category: "Poster", year: "2026", client: "Ohyung", color: "c-blue", image: "./images/poster_Ohyung_2026.jpg", description: "Ohyung을 위해 제작한 2026년 포스터 프로젝트입니다. 강렬한 이미지와 타이포그래피의 리듬을 함께 구성했습니다." },
-  { title: "Spring Coming Keyring", category: "Goods", year: "2026", client: "Personal Project", color: "c-green", image: "./images/Spring Coming Keyring_2_2026.JPG", description: "봄이 다가오는 감각을 작은 그래픽 오브젝트로 옮긴 키링 프로젝트입니다." },
-  { title: "Concrete Lab", category: "Poster", year: "2026", client: "Concrete Lab", color: "c-lilac", image: "./images/Poster_concretelabflyer_2026.jpg", description: "Concrete Lab의 시각적 리듬과 공간적 인상을 하나의 포스터 화면으로 재구성했습니다." },
-  { title: "Melt Down", category: "Poster", year: "2024", client: "Personal Project", color: "c-coral", image: "./images/Poster_melt down_2024.jpg", description: "Melt Down 프로젝트의 시각 언어를 포스터 형식으로 확장한 2024년 작업입니다." },
-  { title: "Melting Down T-Shirt", category: "Goods", year: "2026", client: "Personal Project", color: "c-sky", image: "./images/MTD Tshirt_2_2026.jpg", description: "MTD의 그래픽 언어를 일상적인 티셔츠 오브젝트로 확장한 2026년 작업입니다." },
-  { title: "Deploy", category: "Poster", year: "2021", client: "Personal Project", color: "c-red", image: "./images/poster_deploy_2021.jpg", description: "이미지와 타이포그래피의 관계를 실험한 2021년 Deploy 포스터 프로젝트입니다." },
-  { title: "CHANGGWI", category: "Printing", year: "2025", client: "Personal Project", color: "c-red", image: "./images/book_CHANGGWI_2_2025.jpg", description: "CHANGGWI의 서사와 시각적 분위기를 편집 구성으로 풀어낸 2025년 북 프로젝트입니다." },
-  { title: "Magazine Peel", category: "Printing", year: "2022", client: "Personal Project", color: "c-lilac", image: "./images/Magazine Peel_2022.jpg", description: "Magazine Peel의 편집 구조와 이미지, 타이포그래피의 관계를 탐구한 2022년 매거진 프로젝트입니다." }
+  { title: "Melting Down", category: "Printing", tags: ["Risograph", "Editorial"], year: "2025", client: "Personal Project", color: "c-blue", image: "./images/MTD_book_1.jpg", description: "핑크와 블루 두 가지 색을 중심으로 제작한 리소그래프 북입니다. 녹아내리는 여름의 감각을 인물과 작은 오브젝트의 이야기로 구성했습니다." },
+  { title: "Melting Down Objects", category: "Goods", tags: ["Object", "Graphic"], year: "2025", client: "Personal Project", color: "c-pink", image: "./images/MTD_MD_1.jpg", description: "Melting Down의 그래픽을 일상에서 사용할 수 있는 키링과 작은 오브젝트로 확장한 프로젝트입니다." },
+  { title: "Melting Down Calendar", category: "Goods", tags: ["Risograph", "Object"], year: "2025", client: "Personal Project", color: "c-sky", image: "./images/MTD_MD_2.jpg", description: "프로젝트의 리소그래프 이미지를 작은 캘린더 형태로 재구성해 휴대 가능한 오브젝트로 제작했습니다." },
+  { title: "Fledgling Season", category: "Poster", tags: ["Illustration", "Graphic"], year: "2026", client: "Poster Project", color: "c-blue", image: "./images/Poster Project 2_idea.jpg", description: "학이 둥지를 떠나 처음 비행하는 시기를 강렬한 블루와 세밀한 드로잉으로 표현한 포스터입니다." },
+  { title: "Think Again", category: "Poster", tags: ["Typography", "Graphic"], year: "2026", client: "Poster Project", color: "c-red", image: "./images/Poster Project 1_ Complex.jpg", description: "생각이 많아 방향을 잃는 감각을 달팽이와 뇌, 반복되는 문장으로 시각화한 실험적인 포스터입니다." },
+  { title: "HWF Riso Workshop 01", category: "Printing", tags: ["Workshop", "Risograph"], year: "2025", client: "HWF", color: "c-pink", image: "./images/hwf riso workshop_1.jpg", description: "참여자들이 직접 두 가지 별색을 조합하고 인쇄물을 조립하며 리소그래프의 우연성을 경험한 워크숍입니다." },
+  { title: "Pan’s Labyrinth", category: "Poster", tags: ["Art Direction", "Graphic"], year: "2025", client: "Personal Project", color: "c-green", image: "./images/flimthefloor_pans labyrnth.jpg", description: "영화의 인상적인 장면과 감각을 새로운 그래픽 언어로 번역한 Film the Floor 시리즈입니다." },
+  { title: "Save the Green Planet", category: "Poster", tags: ["Art Direction", "Graphic"], year: "2025", client: "Personal Project", color: "c-yellow", image: "./images/flimthefloor_save the green planet.jpg", description: "영화 속 색과 질감, 서사의 단서를 한 화면 안에 재배치한 Film the Floor 프로젝트입니다." },
+  { title: "The Lobster", category: "Poster", tags: ["Art Direction", "Graphic"], year: "2025", client: "Personal Project", color: "c-coral", image: "./images/flimthefloor_the lobster.jpg", description: "The Lobster의 낯선 분위기와 상징을 시각적 구조와 이미지의 리듬으로 재해석했습니다." },
+  { title: "Where Is My Home?", category: "Poster", tags: ["Illustration", "Graphic"], year: "2026", client: "Poster Project", color: "c-pink", image: "./images/Poster Project 3_idea.jpg", description: "둥지를 떠나는 새의 비행과 방향을 강렬한 핑크, 녹색, 망점 이미지로 표현한 포스터입니다." },
+  { title: "OHYUNG Seendosi", category: "Poster", tags: ["Art Direction", "Typography"], year: "2026", client: "Ohyung", color: "c-blue", image: "./images/poster_Ohyung_2026.jpg", description: "Ohyung을 위해 제작한 2026년 포스터 프로젝트입니다. 강렬한 이미지와 타이포그래피의 리듬을 함께 구성했습니다." },
+  { title: "Spring Coming Keyring", category: "Goods", tags: ["Object", "Graphic"], year: "2026", client: "Personal Project", color: "c-green", image: "./images/Spring Coming Keyring_2_2026.JPG", description: "봄이 다가오는 감각을 작은 그래픽 오브젝트로 옮긴 키링 프로젝트입니다." },
+  { title: "Concrete Lab", category: "Poster", tags: ["Art Direction", "Graphic"], year: "2026", client: "Concrete Lab", color: "c-lilac", image: "./images/Poster_concretelabflyer_2026.jpg", description: "Concrete Lab의 시각적 리듬과 공간적 인상을 하나의 포스터 화면으로 재구성했습니다." },
+  { title: "Melt Down", category: "Poster", tags: ["Typography", "Graphic"], year: "2024", client: "Personal Project", color: "c-coral", image: "./images/Poster_melt down_2024.jpg", description: "Melt Down 프로젝트의 시각 언어를 포스터 형식으로 확장한 2024년 작업입니다." },
+  { title: "Melting Down T-Shirt", category: "Goods", tags: ["Fashion", "Graphic"], year: "2026", client: "Personal Project", color: "c-sky", image: "./images/MTD Tshirt_2_2026.jpg", description: "MTD의 그래픽 언어를 일상적인 티셔츠 오브젝트로 확장한 2026년 작업입니다." },
+  { title: "Deploy", category: "Poster", tags: ["Typography", "Graphic"], year: "2021", client: "Personal Project", color: "c-red", image: "./images/poster_deploy_2021.jpg", description: "이미지와 타이포그래피의 관계를 실험한 2021년 Deploy 포스터 프로젝트입니다." },
+  { title: "CHANGGWI", category: "Printing", tags: ["Editorial", "Book"], year: "2025", client: "Personal Project", color: "c-red", image: "./images/book_CHANGGWI_2_2025.jpg", description: "CHANGGWI의 서사와 시각적 분위기를 편집 구성으로 풀어낸 2025년 북 프로젝트입니다." },
+  { title: "Magazine Peel", category: "Printing", tags: ["Editorial", "Magazine"], year: "2022", client: "Personal Project", color: "c-lilac", image: "./images/Magazine Peel_2022.jpg", description: "Magazine Peel의 편집 구조와 이미지, 타이포그래피의 관계를 탐구한 2022년 매거진 프로젝트입니다." }
 ];
 
 const body = document.body;
@@ -120,8 +120,103 @@ function closeProject() {
 }
 
 document.querySelectorAll(".project-card").forEach((card) => {
+  const project = projects[Number(card.dataset.project)];
+  const tags = document.createElement("span");
+  tags.className = "card-tags";
+  tags.setAttribute("aria-label", `종류: ${project.category}`);
+
+  const tag = document.createElement("span");
+  tag.className = "card-tag";
+  tag.textContent = project.category;
+  tag.setAttribute("role", "link");
+  tag.setAttribute("tabindex", "0");
+  tag.setAttribute("aria-label", `${project.category} 작업 모아보기`);
+  const categoryUrl = `./work.html?category=${project.category.toLowerCase()}`;
+  const openCategory = (event) => {
+    event.stopPropagation();
+    window.location.href = categoryUrl;
+  };
+  tag.addEventListener("click", openCategory);
+  tag.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openCategory(event);
+    }
+  });
+  tags.append(tag);
+
+  const meta = card.querySelector(".card-meta");
+  const year = document.createElement("span");
+  year.className = "card-year";
+  year.textContent = project.year;
+  meta.querySelector("strong").append(year);
+  meta.append(tags);
   card.addEventListener("click", () => openProject(Number(card.dataset.project)));
 });
+
+const workFilters = document.querySelectorAll("[data-work-filter]");
+if (workFilters.length) {
+  const requestedCategory = new URLSearchParams(window.location.search).get("category")?.toLowerCase();
+  const activeCategory = ["poster", "printing", "goods"].includes(requestedCategory)
+    ? requestedCategory
+    : "all";
+  let visibleIndex = 0;
+
+  document.querySelectorAll(".project-card").forEach((card) => {
+    const project = projects[Number(card.dataset.project)];
+    const isVisible = activeCategory === "all" || project.category.toLowerCase() === activeCategory;
+    card.hidden = !isVisible;
+    card.classList.remove("filter-slot-1", "filter-slot-2", "filter-slot-3");
+    if (isVisible) {
+      card.classList.add(`filter-slot-${visibleIndex % 3 + 1}`);
+      visibleIndex += 1;
+    }
+  });
+
+  workFilters.forEach((filter) => {
+    if (filter.dataset.workFilter === activeCategory) {
+      filter.setAttribute("aria-current", "page");
+    } else {
+      filter.removeAttribute("aria-current");
+    }
+  });
+}
+
+const categoryRemote = document.querySelector(".home-page .site-category-bar");
+const homeWork = document.querySelector(".home-page .work");
+const homeGrid = document.querySelector(".home-page .project-grid");
+const homeContact = document.querySelector(".home-page .home-contact");
+const scrollTeaser = document.querySelector(".home-page .scroll-teaser");
+
+if (categoryRemote && homeWork && homeGrid && homeContact && scrollTeaser) {
+  let remoteFrame = null;
+
+  const updateCategoryRemote = () => {
+    remoteFrame = null;
+    const gridRect = homeGrid.getBoundingClientRect();
+    const workRect = homeWork.getBoundingClientRect();
+    const contactRect = homeContact.getBoundingClientRect();
+    const remoteHeight = categoryRemote.offsetHeight;
+    const bottomGap = window.innerWidth <= 720 ? 12 : 18;
+    const gridHasEntered = gridRect.top <= window.innerHeight - 28;
+    const workIsVisible = workRect.bottom > 0;
+    const remoteTop = window.innerHeight - bottomGap - remoteHeight;
+    const contactIsClear = contactRect.top > remoteTop + 24;
+
+    const showWorkControls = gridHasEntered && workIsVisible && contactIsClear;
+    categoryRemote.classList.toggle("is-visible", showWorkControls);
+    categoryRemote.classList.toggle("is-fixed", showWorkControls);
+    scrollTeaser.classList.toggle("is-visible", showWorkControls);
+  };
+
+  const requestRemoteUpdate = () => {
+    if (!remoteFrame) remoteFrame = requestAnimationFrame(updateCategoryRemote);
+  };
+
+  window.addEventListener("scroll", requestRemoteUpdate, { passive: true });
+  window.addEventListener("resize", requestRemoteUpdate);
+  updateCategoryRemote();
+}
 
 document.querySelectorAll("[data-close-panel]").forEach((el) => {
   el.addEventListener("click", closeProject);
@@ -131,28 +226,22 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && body.classList.contains("panel-open")) closeProject();
 });
 
-document.querySelectorAll("[data-filter]").forEach((link) => {
-  link.addEventListener("click", () => {
-    const type = link.dataset.filter;
-    const cards = document.querySelectorAll(".project-card");
-    let visibleIndex = 0;
+const sectionLinks = document.querySelectorAll("[data-section-link]");
+const sectionObserver = new IntersectionObserver((entries) => {
+  const visible = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    document.querySelectorAll("[data-filter]").forEach((filterLink) => {
-      filterLink.removeAttribute("aria-current");
-    });
-    link.setAttribute("aria-current", "true");
-
-    cards.forEach((card) => {
-      const project = projects[Number(card.dataset.project)];
-      const match = type === "all" || project.category.toLowerCase() === type;
-      card.hidden = !match;
-      card.classList.remove("filter-enter", "filter-slot-1", "filter-slot-2", "filter-slot-3");
-      if (match) {
-        card.classList.add(`filter-slot-${visibleIndex % 3 + 1}`);
-        visibleIndex += 1;
-        void card.offsetWidth;
-        card.classList.add("filter-enter");
-      }
-    });
+  if (!visible) return;
+  sectionLinks.forEach((link) => {
+    if (link.dataset.sectionLink === visible.target.id) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
+}, { rootMargin: "-30% 0px -55%", threshold: [0, 0.25, 0.5] });
+
+document.querySelectorAll("#work, #about").forEach((section) => {
+  sectionObserver.observe(section);
 });

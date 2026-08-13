@@ -3,70 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="독립 디자이너의 포스터, 북, 굿즈 포트폴리오" />
-    <title>Apple Slice — Selected Work</title>
+    <meta name="description" content="Apple Slice의 포스터, 인쇄물, 굿즈 포트폴리오" />
+    <title>Work — Apple Slice</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link
-      rel="stylesheet"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="home-page">
+  <body class="work-page">
     <header class="site-header" aria-label="주요 메뉴">
-      <a class="mini-mark" href="#top" aria-label="맨 위로">Apple Slice</a>
+      <a class="mini-mark" href="./index.html" aria-label="홈으로">Apple Slice</a>
       <nav aria-label="주요 페이지">
         <a href="./about.html">About</a>
-        <a href="./work.html">Work</a>
+        <a href="./work.html" aria-current="page">Work</a>
         <a href="./libaray.html">Libaray</a>
       </nav>
     </header>
 
-    <div class="scroll-teaser" aria-hidden="true"></div>
-
     <main>
-      <section class="hero panel" id="top" aria-labelledby="hero-title">
-        <div class="hero-heading">
-          <div class="symbol" aria-hidden="true">
-            <img src="./images/profile_apple.png" alt="" />
-          </div>
-          <h1 id="hero-title">
-            <span class="hero-slogan">
-              CUT A SLICE<br />PIN THE PIECES
-            </span>
-            <span class="hero-introduction">
-              Like slicing an apple, look into the familiar
-              <span class="desktop-continuation">to</span><br class="mobile-break" />
-              <span class="mobile-continuation">To</span> explore its hidden meanings.<br />
-              Weave scattered fragments into a cohesive story.
-            </span>
-          </h1>
-        </div>
-
-        <div class="hero-footer">
-          <a href="#work">Scroll to explore <i>↓</i></a>
-        </div>
-      </section>
-
-      <section class="work panel" id="work" aria-labelledby="work-title">
-        <div class="section-top">
-          <div>
-            <p class="eyebrow">01 — Curated archive</p>
-            <h2 id="work-title">Selected Work</h2>
-          </div>
-          <p class="intro-box">
-            Brand identities, printed matter and small objects made for people
-            who care about detail. A selection of fifteen projects, 2021—2026.
-          </p>
-        </div>
-
-        <nav class="site-category-bar" aria-label="작업 종류별 보기">
-          <span class="remote-links">
-            <a href="./work.html?category=poster">Poster</a>
-            <a href="./work.html?category=printing">Printing</a>
-            <a href="./work.html?category=goods">Goods</a>
-          </span>
+      <section class="work panel" id="work" aria-label="Selected Work">
+        <nav class="work-categories" aria-label="작업 카테고리">
+          <a class="category-pill" href="./work.html" data-work-filter="all">All</a>
+          <a class="category-pill" href="./work.html?category=poster" data-work-filter="poster">Poster</a>
+          <a class="category-pill" href="./work.html?category=printing" data-work-filter="printing">Printing</a>
+          <a class="category-pill" href="./work.html?category=goods" data-work-filter="goods">Goods</a>
         </nav>
 
         <div class="project-grid" aria-label="프로젝트 목록" aria-live="polite">
@@ -98,49 +57,43 @@
             <span class="art"><img src="./images/book_CHANGGWI_2_2025.jpg" alt="CHANGGWI 2025 북 프로젝트" /></span>
             <span class="card-meta"><strong>CHANGGWI</strong></span>
           </button>
-
           <button class="project-card card-tall" data-project="0">
-            <span class="art"><img src="./images/MTD_book_1.jpg" alt="파란색과 분홍색 리소그래프 일러스트가 인쇄된 북 프로젝트" /></span>
+            <span class="art"><img src="./images/MTD_book_1.jpg" alt="파란색과 분홍색 리소그래프 북 프로젝트" /></span>
             <span class="card-meta"><strong>Melting Down</strong></span>
           </button>
           <button class="project-card card-tall" data-project="2">
-            <span class="art"><img src="./images/MTD_MD_2.jpg" alt="휴대폰 뒷면에 부착된 Melting Down 리소그래프 캘린더" /></span>
+            <span class="art"><img src="./images/MTD_MD_2.jpg" alt="Melting Down 리소그래프 캘린더" /></span>
             <span class="card-meta"><strong>Melting Down Calendar</strong></span>
           </button>
           <button class="project-card card-square" data-project="5">
-            <span class="art"><img src="./images/hwf riso workshop_1.jpg" alt="워크숍 참가자가 펼쳐 든 핑크와 블루 리소그래프 결과물" /></span>
+            <span class="art"><img src="./images/hwf riso workshop_1.jpg" alt="HWF 리소그래프 워크숍 결과물" /></span>
             <span class="card-meta"><strong>HWF Riso Workshop 01</strong></span>
           </button>
-
           <button class="project-card card-tall" data-project="7">
-            <span class="art"><img src="./images/flimthefloor_save the green planet.jpg" alt="Film the Floor 프로젝트 Save the Green Planet 이미지" /></span>
+            <span class="art"><img src="./images/flimthefloor_save the green planet.jpg" alt="Save the Green Planet 프로젝트" /></span>
             <span class="card-meta"><strong>Save the Green Planet</strong></span>
           </button>
           <button class="project-card card-square" data-project="8">
-            <span class="art"><img src="./images/flimthefloor_the lobster.jpg" alt="Film the Floor 프로젝트 The Lobster 이미지" /></span>
+            <span class="art"><img src="./images/flimthefloor_the lobster.jpg" alt="The Lobster 프로젝트" /></span>
             <span class="card-meta"><strong>The Lobster</strong></span>
           </button>
           <button class="project-card card-wide" data-project="6">
-            <span class="art"><img src="./images/flimthefloor_pans labyrnth.jpg" alt="Film the Floor 프로젝트 Pan's Labyrinth 이미지" /></span>
+            <span class="art"><img src="./images/flimthefloor_pans labyrnth.jpg" alt="Pan's Labyrinth 프로젝트" /></span>
             <span class="card-meta"><strong>Pan’s Labyrinth</strong></span>
           </button>
-
           <button class="project-card card-tall" data-project="17">
             <span class="art"><img src="./images/Magazine Peel_2022.jpg" alt="Magazine Peel 2022 매거진 프로젝트" /></span>
             <span class="card-meta"><strong>Magazine Peel</strong></span>
           </button>
-
           <button class="project-card card-tall" data-project="15">
             <span class="art"><img src="./images/poster_deploy_2021.jpg" alt="Deploy 2021 포스터 프로젝트" /></span>
             <span class="card-meta"><strong>Deploy</strong></span>
           </button>
-
         </div>
       </section>
-
     </main>
 
-    <footer class="about-contact home-contact" aria-label="연락처 정보">
+    <footer class="about-contact work-contact" aria-label="연락처 정보">
       <div class="contact-brand"><strong>Apple Slice</strong></div>
       <a href="https://www.instagram.com/apple_slice.kr/" target="_blank" rel="noopener noreferrer">
         <strong>@apple_slice.kr</strong>
@@ -153,17 +106,15 @@
     <aside class="project-panel" aria-hidden="true" aria-label="프로젝트 상세">
       <button class="panel-close" data-close-panel aria-label="상세 창 닫기">Close <span>×</span></button>
       <div class="panel-copy">
-        <p class="panel-category">Poster · 2026</p>
-        <h3>After Hours</h3>
+        <p class="panel-category"></p>
+        <h3></h3>
         <dl>
-          <div><dt>Client</dt><dd class="panel-client">Night School</dd></div>
+          <div><dt>Client</dt><dd class="panel-client"></dd></div>
           <div><dt>Role</dt><dd>Art Direction, Design</dd></div>
-          <div><dt>Year</dt><dd class="panel-year">2026</dd></div>
+          <div><dt>Year</dt><dd class="panel-year"></dd></div>
         </dl>
         <p class="panel-description"></p>
-        <div class="panel-gallery">
-          <img class="panel-image" src="./images/MTD_book_1.jpg" alt="" />
-        </div>
+        <div class="panel-gallery"><img class="panel-image" src="./images/MTD_book_1.jpg" alt="" /></div>
       </div>
     </aside>
 
