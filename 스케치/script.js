@@ -2,7 +2,7 @@ const 장면 = new 삼차원.장면()
 장면.배경 = new 삼차원.색('#000000')
 
 const 카메라 = new 삼차원.원근카메라(35, 창.너비 / 창.높이, 0.1, 1000)
-카메라.위치.설정(12,0,12)
+카메라.위치.설정(13.2,0,13.2)
 카메라.바라보기(0,0,0)
 
 const 렌더러 = new 삼차원.렌더러({ 안티앨리어싱: true })
@@ -34,6 +34,7 @@ const 기본회전속도 = 0.001
 let 터치시작X = 0
 let 터치이전X = 0
 let 터치이동거리 = 0
+let 마지막터치선택시간 = 0
 
 const 책수 = 9
 const 반지름 = 5
@@ -125,13 +126,8 @@ const 광선 = new 삼차원.광선()
   터치이전X = 현재X
 }, { passive: false })
 
-창.이벤트걸기('클릭', (e) => {
-  // 스와이프가 끝난 뒤 발생하는 클릭으로 책이 선택되는 것을 막습니다.
-  if (터치이동거리 > 8) {
-    터치이동거리 = 0
-    return
-  }
-  광선.겨누기(e, 카메라)
+function 책선택하기(입력) {
+  광선.겨누기(입력, 카메라)
 
   const 포인트 = 광선.닿은것찾기(그룹.자식들)
   if (포인트[0]) {
@@ -150,6 +146,22 @@ const 광선 = new 삼차원.광선()
     정보창.classList.remove('is-visible')
     정보창.setAttribute('aria-hidden', 'true')
   }
+}
+
+렌더러.돔요소.addEventListener('touchend', (e) => {
+  // 짧은 탭은 모바일에서 즉시 선택하고, 드래그는 선택으로 처리하지 않습니다.
+  if (터치이동거리 <= 8 && e.changedTouches[0]) {
+    const 터치 = e.changedTouches[0]
+    책선택하기({ clientX: 터치.clientX, clientY: 터치.clientY })
+    마지막터치선택시간 = Date.now()
+  }
+  터치이동거리 = 0
+}, { passive: true })
+
+창.이벤트걸기('클릭', (e) => {
+  // touchend 뒤 발생하는 중복 click은 무시합니다.
+  if (Date.now() - 마지막터치선택시간 < 500) return
+  책선택하기(e)
 })
 
 창.이벤트걸기('크기변경', () => {

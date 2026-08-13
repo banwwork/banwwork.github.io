@@ -56,7 +56,8 @@ main {
 .mini-mark {
   font: 700 25px/1 "Athelas", "Times New Roman", serif;
   font-style: normal;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.047em;
+  text-decoration: none;
 }
 .site-header nav {
   display: flex;
@@ -668,9 +669,10 @@ main {
 .panel-image { width:100%; height:auto; display:block; }
 
 @media (max-width: 720px) {
-  .site-header { padding:18px; }
-  .site-header nav { gap:16px; }
-  .site-header nav a { font-size:16px; }
+  .site-header { align-items:baseline; padding:18px; }
+  .site-header nav { align-items:baseline; gap:16px; }
+  .site-header nav a { font-size:14.4px; line-height:1; }
+  .mini-mark { font-size:20.25px; letter-spacing:-.04em; }
   .hero { padding:100px 18px 34px; justify-content:center; }
   .hero-heading { flex-direction:column; align-items:flex-start; gap:24px; }
   .symbol { flex-basis:auto; width:90px; margin-top:0; }
@@ -685,11 +687,8 @@ main {
   .hero h1 .mobile-break,
   .hero h1 .mobile-continuation { display:inline; }
   .hero-footer { left:18px; right:18px; }
-  .scroll-teaser { height:121px; -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
-  .site-category-bar { width:min(320px, calc(100vw - 24px)); padding:6px; border-radius:11px; }
-  .site-category-bar.is-fixed { bottom:12px; }
-  .remote-links { gap:4px; }
-  .remote-links a { padding:4px 7px 5px; font-size:8.5px; }
+  .scroll-teaser,
+  .site-category-bar { display:none !important; }
   .category-pill { padding:4px 10px 5px; font-size:10px; }
   .work { padding:100px 18px 70px; }
   .home-page .work { padding-bottom:82px; }

@@ -87,6 +87,7 @@ canvas:active { cursor: grabbing; }
   box-sizing: border-box;
   background: #fff;
   color: #000;
+  border-radius: 12px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(16px);
@@ -162,9 +163,20 @@ canvas:active { cursor: grabbing; }
   }
 
   .book-panel {
-    right: 20px;
-    bottom: 20px;
-    width: min(292px, calc(100vw - 40px));
-    padding: 16px;
+    right: auto;
+    bottom: 14px;
+    left: 50%;
+    width: min(70vw, 288px);
+    max-height: calc(100svh - 90px);
+    padding: 15px;
+    border-radius: 12px;
+    transform: translate(-50%, calc(100% + 28px));
+    transition: opacity .32s ease, transform .42s cubic-bezier(.22,.75,.24,1), visibility 0s linear .42s;
   }
+
+  .book-panel.is-visible {
+    transform: translate(-50%, 0);
+    transition-delay: 0s;
+  }
+
 }
