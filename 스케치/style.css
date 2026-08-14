@@ -1,8 +1,40 @@
+@font-face {
+  font-family: "Theinhardt";
+  src: url("../font/Theinhardt-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Theinhardt";
+  src: url("../font/Theinhardt-RegularIta.otf") format("opentype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Theinhardt";
+  src: url("../font/Theinhardt-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Theinhardt";
+  src: url("../font/Theinhardt-BoldIta.otf") format("opentype");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
 html, body {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Theinhardt", Arial, Helvetica, sans-serif;
   background: #000;
 }
 canvas {
@@ -12,6 +44,7 @@ canvas {
   display: block;
   touch-action: none;
   cursor: grab;
+  filter: brightness(.93);
 }
 
 canvas:active { cursor: grabbing; }
@@ -36,7 +69,7 @@ canvas:active { cursor: grabbing; }
 .site-wordmark {
   display: block;
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Theinhardt", Arial, Helvetica, sans-serif;
   font-size: clamp(18px, 2vw, 28px);
   font-weight: 700;
   line-height: 1;
@@ -137,10 +170,14 @@ canvas:active { cursor: grabbing; }
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: clamp(12.65px, 3.8vw, 17.7px);
+  gap: clamp(15.18px, 4.56vw, 21.24px);
   margin: 15px 0 0;
   padding-top: 13px;
   border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+.book-panel.has-expanded-details .book-details {
+  gap: clamp(18.975px, 5.7vw, 26.55px);
 }
 
 .book-details div {
@@ -197,6 +234,14 @@ canvas:active { cursor: grabbing; }
 
   .book-panel h1 {
     font-size: clamp(17px, 5.4vw, 21px);
+  }
+
+  .book-details {
+    gap: clamp(19.734px, 5.928vw, 27.612px);
+  }
+
+  .book-panel.has-expanded-details .book-details {
+    gap: clamp(24.6675px, 7.41vw, 34.515px);
   }
 
   .book-details dt {

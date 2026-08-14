@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Theinhardt";
+  src: url("./font/Theinhardt-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Theinhardt";
+  src: url("./font/Theinhardt-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "P22 Mercian";
+  src: url("./font/P22 Mercian W00 Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --ink: #111318;
   --paper: #f3f1e8;
@@ -6,13 +30,14 @@
 }
 
 * { box-sizing: border-box; }
+em, i { font-style: normal; }
 html,
 body { scroll-behavior: auto; }
 body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: "Pretendard", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Theinhardt", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -0.025em;
 }
 body::before {
@@ -54,9 +79,9 @@ main {
 }
 .site-header a { pointer-events: auto; }
 .mini-mark {
-  font: 700 25px/1 "Athelas", "Times New Roman", serif;
+  font: 700 25px/1 "P22 Mercian", "Times New Roman", serif;
   font-style: normal;
-  letter-spacing: -0.047em;
+  letter-spacing: 0.01725em;
   text-decoration: none;
 }
 .site-header nav {
@@ -65,11 +90,12 @@ main {
   gap: clamp(22px, 2.5vw, 42px);
 }
 .site-header nav a {
-  font-family: "Athelas", "Times New Roman", serif;
+  font-family: "P22 Mercian", "Times New Roman", serif;
   font-size: clamp(16px, 1.35vw, 22px);
   line-height: 1.12;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: .01725em;
   position: relative;
 }
 .site-header nav a::after {
@@ -151,22 +177,22 @@ main {
 }
 .hero h1 span { display: block; }
 .hero-slogan {
-  font-family: "Athelas", "Times New Roman", serif;
+  font-family: "P22 Mercian", "Times New Roman", serif;
   font-size: clamp(53px, 6.84vw, 106px);
   line-height: 1.23;
   font-weight: 700;
-  font-style: italic;
-  letter-spacing: -.054em;
+  font-style: normal;
+  letter-spacing: .01725em;
 }
 .hero h1 .hero-introduction {
   margin-top: clamp(24px, 3.2vw, 52px);
   padding-left: clamp(0px, 4vw, 64px);
   font-weight: 400;
-  font-family: "Athelas", "Times New Roman", serif;
-  font-style: italic;
+  font-family: "P22 Mercian", "Times New Roman", serif;
+  font-style: normal;
   font-size: clamp(18px, 1.8vw, 29px);
   line-height: 1.54;
-  letter-spacing: -.026em;
+  letter-spacing: .01725em;
   max-width: 850px;
 }
 .hero h1 .desktop-continuation { display: inline; }
@@ -275,7 +301,7 @@ main {
 .remote-links a:hover,
 .remote-links a:focus-visible { border-color:var(--ink); background:var(--ink); color:#fff; }
 .work {
-  padding: 110px 3vw 7vw;
+  padding: 110px 30px 7vw;
   background: linear-gradient(
     180deg,
     #8bd5f2 0%,
@@ -286,13 +312,17 @@ main {
   overflow: visible;
 }
 .home-page .work { padding-bottom: clamp(88px, 7vw, 118px); }
-.work-page .work { min-height: 100svh; padding-top: 104px; }
+.work-page .work {
+  min-height: 100svh;
+  padding-top: 104px;
+}
 .work-page .work { padding-bottom: clamp(64px, 5vw, 88px); }
 .section-top {
   display: grid;
   grid-template-columns: 1fr minmax(280px, 36vw);
   align-items: end;
   gap: 30px;
+  padding-inline: calc(1.333333% - .024vw);
   margin-bottom: 70px;
 }
 .eyebrow {
@@ -304,15 +334,19 @@ main {
 .work h1,
 .work h2 {
   margin: 0;
-  font: normal 400 clamp(40px, 6.5vw, 98px)/.8 "Athelas", "Times New Roman", serif;
-  letter-spacing: -.055em;
+  font: normal 400 clamp(40px, 6.5vw, 98px)/.8 "P22 Mercian", "Times New Roman", serif;
+  letter-spacing: .01725em;
+}
+
+#work-title {
+  letter-spacing: .005em;
 }
 .intro-box {
   margin: 0;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  padding: 18px 55px 18px 18px;
+  padding: 0;
   font-size: 14px;
   line-height: 1.45;
   position: relative;
@@ -450,21 +484,21 @@ main {
 .c-pink { background: #f2a9c2; }
 .c-sky { background: #b7ddff; }
 .art i, .art b { position: absolute; font-style: normal; }
-.art-poster i { left: 7%; top: 6%; font: 800 clamp(45px,6vw,100px)/.72 "Helvetica Neue", "Pretendard", sans-serif; letter-spacing: -.08em; }
+.art-poster i { left: 7%; top: 6%; font: 800 clamp(45px,6vw,100px)/.72 "Theinhardt", "Helvetica Neue", sans-serif; letter-spacing: -.08em; }
 .art-poster b { bottom: 4%; right: 6%; font-size: 13px; }
 .art-poster::after { content: ""; position:absolute; width:42%; aspect-ratio:1; border-radius:50%; border: 18px solid #f8a83e; right:-10%; bottom:17%; }
 .art-book { background: linear-gradient(30deg, #ef765f 0 49.5%, #f2c4d1 50%); }
-.art-book i { left: 7%; bottom: 8%; font: 700 clamp(33px,4vw,65px)/.8 "Helvetica Neue", "Pretendard", sans-serif; }
+.art-book i { left: 7%; bottom: 8%; font: 700 clamp(33px,4vw,65px)/.8 "Theinhardt", "Helvetica Neue", sans-serif; }
 .art-book b { right: 6%; top: 6%; }
 .art-goods::before { content:""; position:absolute; width:45%; height:57%; background:#f5eee0; border-radius:48% 48% 15% 15%; left:28%; top:20%; box-shadow: inset 0 -18px 0 #76aee0; transform:rotate(-8deg); }
-.art-goods i { z-index:1; left:35%; top:38%; text-align:center; font:700 26px/1 "Helvetica Neue", "Pretendard", sans-serif; transform:rotate(-8deg); }
+.art-goods i { z-index:1; left:35%; top:38%; text-align:center; font:700 26px/1 "Theinhardt", "Helvetica Neue", sans-serif; transform:rotate(-8deg); }
 .art-goods b { right:7%; top:6%; font-size:25px; }
-.art-type i { font: 700 clamp(110px,17vw,260px)/.8 "Helvetica Neue", "Pretendard", sans-serif; left:2%; bottom:-5%; }
+.art-type i { font: 700 clamp(110px,17vw,260px)/.8 "Theinhardt", "Helvetica Neue", sans-serif; left:2%; bottom:-5%; }
 .art-type b { right:5%; top:7%; text-align:right; font-size:14px; }
 .art-record i { width:64%; aspect-ratio:1; border-radius:50%; background: repeating-radial-gradient(circle,#191919 0 2px,#554e73 3px 5px); left:18%; top:16%; }
 .art-record i::after { content:""; position:absolute; inset:39%; background:#f0d84b; border-radius:50%; }
 .art-record b { right:5%; bottom:5%; font-size:11px; text-align:right; color:white; }
-.art-editorial i { left:7%; top:6%; font:700 clamp(38px,5vw,78px)/.82 "Helvetica Neue", "Pretendard", sans-serif; color:#f2c4d1; }
+.art-editorial i { left:7%; top:6%; font:700 clamp(38px,5vw,78px)/.82 "Theinhardt", "Helvetica Neue", sans-serif; color:#f2c4d1; }
 .art-editorial b { left:8%; bottom:6%; color:#f2c4d1; font-size:11px; }
 .art-editorial::after { content:""; position:absolute; width:60%; height:1px; background:#f2c4d1; transform:rotate(-40deg); top:53%; left:34%; }
 .art-flower i { inset: 50% auto auto 50%; transform:translate(-50%,-55%); font-size:clamp(140px,18vw,280px); color:#f0d84b; }
@@ -472,10 +506,10 @@ main {
 .art-pack::before, .art-pack::after { content:""; position:absolute; width:48%; height:68%; border:1px solid #111; background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(255,255,255,.1)); bottom:9%; }
 .art-pack::before { left:9%; transform:rotate(-6deg); }
 .art-pack::after { right:6%; transform:rotate(7deg); }
-.art-pack i { z-index:2; left:18%; top:20%; font:700 clamp(46px,6vw,90px)/.72 "Helvetica Neue", "Pretendard", sans-serif; }
+.art-pack i { z-index:2; left:18%; top:20%; font:700 clamp(46px,6vw,90px)/.72 "Theinhardt", "Helvetica Neue", sans-serif; }
 .art-pack b { z-index:2; bottom:11%; right:11%; font-size:10px; }
 .art-calendar { background: repeating-linear-gradient(90deg,#b7ddff 0 19%,#dff2ff 20% 21%); }
-.art-calendar i { left:6%; top:10%; font:700 clamp(45px,6vw,90px)/.74 "Helvetica Neue", "Pretendard", sans-serif; }
+.art-calendar i { left:6%; top:10%; font:700 clamp(45px,6vw,90px)/.74 "Theinhardt", "Helvetica Neue", sans-serif; }
 .art-calendar b { bottom:7%; right:6%; font-size:13px; }
 
 .about {
@@ -510,8 +544,8 @@ main {
 .about-intro h1,
 .about-intro h2 {
   margin: 0 0 80px;
-  font: normal 700 clamp(36px, 4.5vw, 73px)/1.14 "Athelas", "Times New Roman", serif;
-  letter-spacing: -.052em;
+  font: normal 700 clamp(36px, 4.5vw, 73px)/1.14 "P22 Mercian", "Times New Roman", serif;
+  letter-spacing: .01725em;
 }
 .about-statement {
   margin: 0;
@@ -534,8 +568,8 @@ main {
 .history h2,
 .history h3 {
   margin: 0;
-  font: normal 700 clamp(36px, 4.5vw, 73px)/.95 "Athelas", "Times New Roman", serif;
-  letter-spacing: -.055em;
+  font: normal 700 clamp(36px, 4.5vw, 73px)/.95 "P22 Mercian", "Times New Roman", serif;
+  letter-spacing: .01725em;
 }
 .about-page .about-upper { min-height: 89svh; }
 .history ol {
@@ -553,7 +587,7 @@ main {
   font-size: clamp(13px, 1.05vw, 17px);
 }
 .history time {
-  font-family: "Helvetica Neue", "Pretendard", sans-serif;
+  font-family: "Theinhardt", "Helvetica Neue", sans-serif;
   font-weight: 700;
   font-size: 1.15em;
 }
@@ -619,24 +653,26 @@ main {
 }
 .panel-open .scrim { opacity:1; visibility:visible; }
 .panel-open .project-panel { transform:translateX(0); }
-.panel-close { position:absolute; z-index:2; top:18px; right:20px; border:0; background:#000; color:#fff; padding:8px 12px; border-radius:50px; cursor:pointer; font:500 13px "Pretendard", "Helvetica Neue", sans-serif; }
+.panel-close { position:absolute; z-index:2; top:18px; right:20px; border:0; background:#000; color:#fff; padding:8px 12px; border-radius:50px; cursor:pointer; font:500 13px "Theinhardt", "Helvetica Neue", sans-serif; }
 .panel-close span { font-size:19px; margin-left:5px; vertical-align:-1px; }
 .panel-copy {
   min-height:100%;
   padding:72px 40px 60px;
   background:#000;
   color:#fff;
-  font-family:"Athelas", "Times New Roman", serif;
+  font-family:"P22 Mercian", "Times New Roman", serif;
+  font-style:normal;
+  letter-spacing:.01725em;
 }
 .panel-copy h3 {
   margin:4px 0 18px;
   white-space:nowrap;
-  font:700 clamp(34px,4.5vw,62px)/.95 "Athelas", "Times New Roman", serif;
-  letter-spacing:-.05em;
+  font:700 clamp(34px,4.5vw,62px)/.95 "P22 Mercian", "Times New Roman", serif;
+  letter-spacing:.01725em;
 }
 .panel-copy h3.is-long-title { font-size:clamp(26px,4vw,42px); }
 .panel-category {
-  font-family:"Pretendard", "Helvetica Neue", sans-serif;
+  font-family:"Theinhardt", "Helvetica Neue", sans-serif;
   text-transform:uppercase;
   letter-spacing:.1em;
   font-size:11px;
@@ -644,14 +680,14 @@ main {
 .panel-description {
   max-width:500px;
   margin:36px 0 0;
-  font-family:"Pretendard", "Helvetica Neue", sans-serif;
+  font-family:"Theinhardt", "Helvetica Neue", sans-serif;
   line-height:1.55;
   font-size:clamp(15px, 1.2vw, 19px);
 }
 .panel-copy dl {
   margin:40px 0 0;
   border-top:1px solid rgba(255,255,255,.8);
-  font-family:"Pretendard", "Helvetica Neue", sans-serif;
+  font-family:"Theinhardt", "Helvetica Neue", sans-serif;
 }
 .panel-copy dl div { display:grid; grid-template-columns:1fr 2fr; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.28); font-size:12px; }
 .panel-copy dt { text-transform:uppercase; }
@@ -663,15 +699,18 @@ main {
   .site-header { align-items:baseline; padding:18px; }
   .site-header nav { align-items:baseline; gap:16px; }
   .site-header nav a { font-size:14.4px; line-height:1; }
-  .mini-mark { font-size:20.25px; letter-spacing:-.04em; }
+  .mini-mark { font-size:20.25px; letter-spacing:.01725em; }
   .hero { padding:100px 18px 34px; justify-content:center; }
   .hero-heading { flex-direction:column; align-items:flex-start; gap:24px; }
   .symbol { flex-basis:auto; width:90px; margin-top:0; }
-  .hero-slogan { font-size:clamp(46px,13.2vw,70px); }
+  .hero-slogan {
+    font-size:clamp(36px,10.4vw,54px);
+    white-space:nowrap;
+  }
   .hero h1 .hero-introduction {
     margin-top:24px;
     padding-left:0;
-    font-size:clamp(17px,5vw,23px);
+    font-size:clamp(13.685px,4.025vw,18.515px);
     line-height:1.45;
   }
   .hero h1 .desktop-continuation { display:none; }
@@ -685,7 +724,7 @@ main {
   .home-page .work { padding-bottom:82px; }
   .work-page .work { padding-top:86px; }
   .work-page .work { padding-bottom:62px; }
-  .section-top { grid-template-columns:1fr; margin-bottom:45px; }
+  .section-top { grid-template-columns:1fr; padding-inline:4%; margin-bottom:45px; }
   .work h1,
   .work h2 { font-size:14vw; }
   .work-categories { gap:5px; margin:-10px auto 42px; }

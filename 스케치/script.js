@@ -2,10 +2,19 @@ const 장면 = new 삼차원.장면()
 장면.배경 = new 삼차원.색('#000000')
 
 const 카메라 = new 삼차원.원근카메라(35, 창.너비 / 창.높이, 0.1, 1000)
-카메라.위치.설정(13.2,0,13.2)
-카메라.바라보기(0,0,0)
+
+function 카메라거리맞추기() {
+  const 카메라거리 = window.matchMedia('(max-width: 600px)').matches ? 13.2 : 10.5
+  카메라.위치.설정(카메라거리,0,카메라거리)
+  카메라.바라보기(0,0,0)
+}
+
+카메라거리맞추기()
 
 const 렌더러 = new 삼차원.렌더러({ 안티앨리어싱: true })
+렌더러.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
+렌더러.outputColorSpace = THREE.SRGBColorSpace
+렌더러.toneMapping = THREE.NoToneMapping
 렌더러.크기설정(창.너비, 창.높이)
 문서.본문.붙이기(렌더러.돔요소)
 
@@ -18,8 +27,22 @@ const 방향빛 = new 삼차원.방향빛('흰색', 0.7)
 장면.추가(방향빛)
 
 const 로더 = new 삼차원.텍스처로더()
-const 종이 = new 삼차원.표준재질({ 색: '흰색' })
+const 최대이방성 = Math.min(16, 렌더러.capabilities.getMaxAnisotropy())
+const 종이 = new THREE.MeshBasicMaterial({ color: 0xe5e4df, toneMapped: false })
 const 그룹 = 장면.그룹만들기()
+
+function 텍스처선명하게(텍스처) {
+  텍스처.색공간 = 삼차원.SRGB색공간
+  텍스처.anisotropy = 최대이방성
+  텍스처.magFilter = THREE.LinearFilter
+  텍스처.minFilter = THREE.LinearMipmapLinearFilter
+  텍스처.generateMipmaps = true
+  return 텍스처
+}
+
+function 이미지재질(텍스처) {
+  return new THREE.MeshBasicMaterial({ map: 텍스처, toneMapped: false })
+}
 
 const 정보창 = document.querySelector('#book-panel')
 const 정보번호 = document.querySelector('#book-number')
@@ -40,6 +63,8 @@ let 마지막터치선택시간 = 0
 
 const 책수 = 9
 const 반지름 = 5
+const 기본책높이 = 2.9
+const 기본책두께 = 0.3
 const 책정보 = [
   { 제목: '빈칸의 도서관', 저자: '조현지', 쪽수: '144p', 크기: '150 × 211 mm', 연도: '2024', 제본: 'Hardcover' },
   { 제목: 'CUBIC', 저자: '우연식', 쪽수: '162p', 크기: '165 × 240 mm', 연도: '2019', 제본: 'Hardcover' },
@@ -55,22 +80,38 @@ const 책정보 = [
 
 for (let i=0; i < 책수; i++) {
   const 번호 = i + 1
-  const 표지 = 로더.불러오기 ('Cover_' + 번호 + '.jpg?v=2')
-  표지.색공간 = 삼차원.SRGB색공간
-  const 책등 = 로더.불러오기 ('Spine_' + 번호 + '.jpg?v=2')
-  책등.색공간 = 삼차원.SRGB색공간
-  const 뒷면 = 로더.불러오기 ('back_' + 번호 + '.jpg?v=2')
-  뒷면.색공간 = 삼차원.SRGB색공간
+  const 이미지버전 = 번호 === 5 ? 4 : 2
+  let 책
 
-  const 책 = new 삼차원.도형(
-    new 삼차원.상자모양(2.1, 2.9, 0.3),
+  function 책등비율적용(텍스처) {
+    const 이미지 = 텍스처.image
+    const 이미지너비 = 이미지?.naturalWidth || 이미지?.width
+    const 이미지높이 = 이미지?.naturalHeight || 이미지?.height
+    if (!책 || !이미지너비 || !이미지높이) return
+
+    const 실제책두께 = 기본책높이 * (이미지너비 / 이미지높이)
+    책.scale.z = 실제책두께 / 기본책두께
+  }
+
+  const 표지 = 로더.불러오기 ('Cover_' + 번호 + '.jpg?v=' + 이미지버전)
+  const 책등 = 로더.불러오기 ('Spine_' + 번호 + '.jpg?v=' + 이미지버전, (완료된책등) => {
+    텍스처선명하게(완료된책등)
+    책등비율적용(완료된책등)
+  })
+  const 뒷면 = 로더.불러오기 ('back_' + 번호 + '.jpg?v=' + 이미지버전)
+  텍스처선명하게(표지)
+  텍스처선명하게(책등)
+  텍스처선명하게(뒷면)
+
+  책 = new 삼차원.도형(
+    new 삼차원.상자모양(2.1, 기본책높이, 기본책두께),
     [
     종이,
-    new 삼차원.표준재질({ 텍스처: 책등 }),
+    이미지재질(책등),
     종이,
     종이,
-    new 삼차원.표준재질({ 텍스처: 표지 }),
-    new 삼차원.표준재질({ 텍스처: 뒷면 }),
+    이미지재질(표지),
+    이미지재질(뒷면),
     ]
   )
 
@@ -91,6 +132,7 @@ for (let i=0; i < 책수; i++) {
   책.위치.설정(x,0,z)
   책.바라보기(x * 2, 0, z * 2)
   그룹.추가(책)
+  책등비율적용(책등)
 }
 
 
@@ -144,6 +186,7 @@ function 책선택하기(입력) {
     정보크기.textContent = 선택책.판형
     정보연도.textContent = 선택책.연도
     정보제본.textContent = 선택책.제본
+    정보창.classList.toggle('has-expanded-details', 선택책.번호 !== 6 && 선택책.번호 !== 7)
     정보창.classList.add('is-visible')
     정보창.setAttribute('aria-hidden', 'false')
   }
@@ -171,6 +214,7 @@ function 책선택하기(입력) {
 })
 
 창.이벤트걸기('크기변경', () => {
+  카메라거리맞추기()
   카메라.화면비율= 창.너비 / 창.높이
   카메라.투영갱신()
   렌더러.크기설정(창.너비, 창.높이)
