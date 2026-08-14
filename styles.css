@@ -116,7 +116,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 110px 7vw 42px;
+  padding: 110px 7vw 73.71px;
   background: transparent;
 }
 .home-page .hero {
@@ -301,7 +301,7 @@ main {
 .remote-links a:hover,
 .remote-links a:focus-visible { border-color:var(--ink); background:var(--ink); color:#fff; }
 .work {
-  padding: 110px 30px 7vw;
+  padding: 193.05px 30px 7vw;
   background: linear-gradient(
     180deg,
     #8bd5f2 0%,
@@ -700,8 +700,8 @@ main {
   .site-header nav { align-items:baseline; gap:16px; }
   .site-header nav a { font-size:14.4px; line-height:1; }
   .mini-mark { font-size:20.25px; letter-spacing:.01725em; }
-  .hero { padding:100px 18px 34px; justify-content:center; }
-  .hero-heading { flex-direction:column; align-items:flex-start; gap:24px; }
+  .hero { padding:100px 18px 59.67px; justify-content:center; }
+  .hero-heading { flex-direction:column; align-items:flex-start; gap:24px; margin-left:3.6px; }
   .symbol { flex-basis:auto; width:90px; margin-top:0; }
   .hero-slogan {
     font-size:clamp(36px,10.4vw,54px);
@@ -720,16 +720,21 @@ main {
   .scroll-teaser,
   .site-category-bar { display:none !important; }
   .category-pill { padding:4px 10px 5px; font-size:10px; }
-  .work { padding:100px 18px 70px; }
+  .work { padding:175.5px 18px 70px; }
   .home-page .work { padding-bottom:82px; }
   .work-page .work { padding-top:86px; }
   .work-page .work { padding-bottom:62px; }
-  .section-top { grid-template-columns:1fr; padding-inline:4%; margin-bottom:45px; }
+  .section-top { grid-template-columns:1fr; padding-inline:4.2%; margin-bottom:45px; }
   .work h1,
   .work h2 { font-size:14vw; }
+  #work-title {
+    font-size:clamp(36px,10.5vw,48px);
+    white-space:nowrap;
+  }
   .work-categories { gap:5px; margin:-10px auto 42px; }
   .work-page .work-categories { margin:0 auto 42px; }
   .project-grid { grid-template-columns:1fr; gap:45px; }
+  .project-card { width:91.6%; }
   .project-card:nth-child(n) { margin-top:0; }
   .card-meta { gap:7px; font-size:12px; }
   .card-meta strong { padding-top:0; }
