@@ -554,7 +554,11 @@ main {
   font: normal 700 clamp(36px, 4.5vw, 73px)/.95 "P22 Mercian", "Times New Roman", serif;
   letter-spacing: .01725em;
 }
-.about-page .about-upper { min-height: 89svh; }
+.about-page .about { min-height: 100svh; }
+.about-page .about-upper {
+  min-height: 0;
+  flex: 1 0 auto;
+}
 .history ol {
   list-style: none;
   padding: 0;
