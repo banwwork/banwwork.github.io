@@ -45,6 +45,7 @@ function 이미지재질(텍스처) {
 }
 
 const 정보창 = document.querySelector('#book-panel')
+const 상호작용안내 = document.querySelector('.interaction-hint')
 const 정보번호 = document.querySelector('#book-number')
 const 정보제목 = document.querySelector('#book-title')
 const 정보저자 = document.querySelector('#book-author')
@@ -60,6 +61,11 @@ let 터치시작X = 0
 let 터치이전X = 0
 let 터치이동거리 = 0
 let 마지막터치선택시간 = 0
+
+// 모바일 안내 문구는 하단에서 올라오고, 정보창과 자리를 번갈아 사용합니다.
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => 상호작용안내.classList.add('is-visible'))
+})
 
 const 책수 = 9
 const 반지름 = 5
@@ -189,11 +195,13 @@ function 책선택하기(입력) {
     정보창.classList.toggle('has-expanded-details', 선택책.번호 !== 6 && 선택책.번호 !== 7)
     정보창.classList.add('is-visible')
     정보창.setAttribute('aria-hidden', 'false')
+    상호작용안내.classList.remove('is-visible')
   }
   else{
     선택책 = null
     정보창.classList.remove('is-visible')
     정보창.setAttribute('aria-hidden', 'true')
+    상호작용안내.classList.add('is-visible')
   }
 }
 
