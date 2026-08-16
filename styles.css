@@ -686,6 +686,21 @@ main {
 .panel-image { width:100%; height:auto; display:block; }
 
 @media (max-width: 720px) {
+  .home-page::after,
+  .about-page::after,
+  .work-page::after,
+  .libaray-page::after {
+    content:"";
+    position:fixed;
+    z-index:29;
+    top:0;
+    right:0;
+    left:0;
+    height:calc(36.5px + env(safe-area-inset-top, 0px));
+    background:#82d2f2;
+    pointer-events:none;
+  }
+  .libaray-page::after { background:#000; }
   .home-page,
   .about-page,
   .work-page,
