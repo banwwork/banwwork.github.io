@@ -33,6 +33,8 @@
 em, i { font-style: normal; }
 html,
 body { scroll-behavior: auto; }
+html { background: #82d2f2; }
+html.libaray-root { background: #000; }
 body {
   margin: 0;
   color: var(--ink);
@@ -701,6 +703,19 @@ main {
     pointer-events:none;
   }
   .libaray-page::after { background:#000; }
+  @supports (-webkit-touch-callout: none) {
+    .site-header,
+    .home-page::after,
+    .about-page::after,
+    .work-page::after,
+    .libaray-page::after {
+      -webkit-transform:translate3d(0, 0, 0);
+      transform:translate3d(0, 0, 0);
+      -webkit-backface-visibility:hidden;
+      backface-visibility:hidden;
+      will-change:transform;
+    }
+  }
   .home-page,
   .about-page,
   .work-page,
