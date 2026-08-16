@@ -61,6 +61,9 @@ a { text-decoration: none; }
   --site-edge: 22.95px;
   --header-edge: 18.36px;
 }
+.home-page,
+.about-page,
+.work-page { background: #82d2f2; }
 
 main {
   background: #82d2f2;
@@ -680,7 +683,9 @@ main {
     --site-edge:15.3px;
     --header-edge:12.24px;
   }
-  .site-header { padding:13.8px 14.4px 10px; }
+  .site-header {
+    padding:calc(13.8px + env(safe-area-inset-top, 0px)) 14.4px 10px;
+  }
   .site-header nav { gap:16px; }
   .site-header nav a { font-size:clamp(8.8px,2.53vw,11px); }
   .mini-mark { font-size:clamp(10.12px,2.91vw,12.65px); letter-spacing:.01725em; }
