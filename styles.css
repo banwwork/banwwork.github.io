@@ -70,14 +70,24 @@ main {
 }
 
 .site-header {
+  --header-background: #82d2f2;
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
+  isolation: isolate;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 13.8px 24px 12px;
-  background: #82d2f2;
+  background: var(--header-background);
+  pointer-events: none;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -100px 0 0;
+  background: var(--header-background);
   pointer-events: none;
 }
 .site-header a {
@@ -773,7 +783,7 @@ main {
   background: #000;
 }
 .libaray-page::before { opacity: .07; }
-.libaray-page .site-header { color: #fff; background:#000; }
+.libaray-page .site-header { --header-background:#000; color:#fff; }
 .libaray-page .site-header a { -webkit-text-stroke: 0; }
 .library-stage {
   position: fixed;
