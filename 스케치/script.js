@@ -4,7 +4,7 @@ const 장면 = new 삼차원.장면()
 const 카메라 = new 삼차원.원근카메라(35, 창.너비 / 창.높이, 0.1, 1000)
 
 function 카메라거리맞추기() {
-  const 카메라거리 = window.matchMedia('(max-width: 600px)').matches ? 13.2 : 10.5
+  const 카메라거리 = window.matchMedia('(max-width: 600px)').matches ? 12.2958 : 10.8675
   카메라.위치.설정(카메라거리,0,카메라거리)
   카메라.바라보기(0,0,0)
 }
@@ -45,8 +45,6 @@ function 이미지재질(텍스처) {
 }
 
 const 정보창 = document.querySelector('#book-panel')
-const 상호작용안내 = document.querySelector('.interaction-hint')
-const 정보번호 = document.querySelector('#book-number')
 const 정보제목 = document.querySelector('#book-title')
 const 정보저자 = document.querySelector('#book-author')
 const 정보쪽수 = document.querySelector('#book-pages')
@@ -61,11 +59,6 @@ let 터치시작X = 0
 let 터치이전X = 0
 let 터치이동거리 = 0
 let 마지막터치선택시간 = 0
-
-// 모바일 안내 문구는 하단에서 올라오고, 정보창과 자리를 번갈아 사용합니다.
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => 상호작용안내.classList.add('is-visible'))
-})
 
 const 책수 = 9
 const 반지름 = 5
@@ -135,8 +128,8 @@ for (let i=0; i < 책수; i++) {
   책.번호 = 번호
   책.각도 = 각책의각도
 
-  책.위치.설정(x,0,z)
-  책.바라보기(x * 2, 0, z * 2)
+  책.위치.설정(x, 기본책높이 * 0.1, z)
+  책.바라보기(x * 2, 기본책높이 * 0.1, z * 2)
   그룹.추가(책)
   책등비율적용(책등)
 }
@@ -185,23 +178,19 @@ function 책선택하기(입력) {
   if (포인트[0]) {
     선택책 = 포인트[0].물체
     그룹.부드럽게돌기(선택책.각도 - 수학.파이 / 4)
-    정보번호.textContent = 'Book ' + String(선택책.번호).padStart(2, '0')
     정보제목.textContent = 선택책.제목
     정보저자.textContent = 선택책.저자
     정보쪽수.textContent = 선택책.쪽수
     정보크기.textContent = 선택책.판형
     정보연도.textContent = 선택책.연도
     정보제본.textContent = 선택책.제본
-    정보창.classList.toggle('has-expanded-details', 선택책.번호 !== 6 && 선택책.번호 !== 7)
     정보창.classList.add('is-visible')
     정보창.setAttribute('aria-hidden', 'false')
-    상호작용안내.classList.remove('is-visible')
   }
   else{
     선택책 = null
     정보창.classList.remove('is-visible')
     정보창.setAttribute('aria-hidden', 'true')
-    상호작용안내.classList.add('is-visible')
   }
 }
 

@@ -325,7 +325,7 @@ main {
 }
 .eyebrow {
   margin: 0 0 12px;
-  font-size: 11px;
+  font-size: 9.35px;
   text-transform: uppercase;
   letter-spacing: .14em;
 }
@@ -530,43 +530,45 @@ main {
   min-height: 65svh;
   flex: none;
   display: grid;
-  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  grid-template-columns: 1fr;
   position: relative;
   z-index: 1;
 }
 .about-upper > article { padding: 105px 5vw 55px; }
-.about-intro {
-  display: flex;
-  flex-direction: column;
+.about-intro,
+.history {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: start;
+  gap: 40px;
 }
 .about-intro h1,
 .about-intro h2 {
-  margin: 0 0 80px;
-  font: normal 700 clamp(36px, 4.5vw, 73px)/1.14 "P22 Mercian", "Times New Roman", serif;
+  margin: 0;
+  font: normal 700 clamp(27px, 3.375vw, 54.75px)/1.14 "P22 Mercian", "Times New Roman", serif;
   letter-spacing: .01725em;
 }
 .about-statement {
-  margin: 0;
-  max-width: 680px;
+  margin: 23.22px 0 0;
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
   font-size: clamp(15px, 1.2vw, 19px);
   line-height: 1.55;
   letter-spacing: -.02em;
 }
-.history {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 .history-heading {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
 }
+.about-intro-heading .eyebrow,
+.history-heading .eyebrow { line-height: 1.2; }
 .history h2,
 .history h3 {
   margin: 0;
-  font: normal 700 clamp(36px, 4.5vw, 73px)/.95 "P22 Mercian", "Times New Roman", serif;
+  font: normal 700 clamp(27px, 3.375vw, 54.75px)/1.14 "P22 Mercian", "Times New Roman", serif;
   letter-spacing: .01725em;
 }
 .about-page .about { min-height: 100svh; }
@@ -577,23 +579,34 @@ main {
 .history ol {
   list-style: none;
   padding: 0;
-  margin: 80px 0 0;
+  margin: 23.22px 0 0;
   border-top: 1px solid rgba(17,19,24,.72);
 }
 .history li {
   display: grid;
-  grid-template-columns: minmax(72px, .7fr) 2.3fr;
-  gap: 20px;
+  grid-template-columns: 120px minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 40px;
   padding: 15px 0;
   border-bottom: 1px solid rgba(17,19,24,.28);
-  font-size: clamp(13px, 1.05vw, 17px);
+  font-size: clamp(13.5px, 1.2vw, 19.5px);
 }
 .history time {
   font-family: "Theinhardt", "Helvetica Neue", sans-serif;
   font-weight: 700;
-  font-size: 1.15em;
+  font-size: 1em;
 }
+.history time,
+.history-project,
+.history-client { white-space: nowrap; }
+.history time.history-range { font-size: 1em; }
 .history li span { line-height: 1.4; }
+.history-client {
+  font-family: "Theinhardt", "Helvetica Neue", sans-serif;
+  font-size: .82em;
+  font-weight: 400;
+  letter-spacing: .04em;
+}
 .about-contact {
   min-height: 0;
   display: grid;
@@ -770,15 +783,36 @@ main {
   .card-year { margin-left:5px; font-size:8px; }
   .card-tag { padding:3px 8px; font-size:8.5px; }
   .about-upper { grid-template-columns:1fr; }
-  .about-upper > article { padding:90px 18px 50px; }
-  .about-intro { min-height:65svh; }
+  .about-upper > article { padding:90px calc(18px + 1vw) 50px; }
+  .about-intro {
+    min-height:45.5svh;
+    grid-template-columns:1fr;
+    gap:48px;
+  }
   .about-intro h1,
-  .about-intro h2 { font-size:9.56vw; margin:0 0 70px; }
+  .about-intro h2 { font-size:7.17vw; margin:0; }
+  .about-statement { width:82%; margin-top:0; justify-self:end; }
   .history h2,
-  .history h3 { font-size:7.35vw; }
+  .history h3 { font-size:7.17vw; }
   .about-statement br { display:none; }
-  .history { min-height:80svh; }
-  .history ol { margin-top:70px; }
+  .history {
+    min-height:56svh;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .history ol { margin-top:0; }
+  .history li {
+    grid-template-columns:72px minmax(0,1fr);
+    gap:20px;
+    font-size:clamp(10.8px,2.97vw,13.5px);
+  }
+  .history-project {
+    display:block;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .history-client { display:none; }
   .about-contact {
     grid-template-columns:repeat(3,max-content);
     grid-template-rows:1fr;

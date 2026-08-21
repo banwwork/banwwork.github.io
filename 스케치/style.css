@@ -30,6 +30,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "P22 Mercian";
+  src: url("../font/P22 Mercian W00 Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 html, body {
   margin: 0;
   height: 100%;
@@ -101,29 +109,38 @@ canvas:active { cursor: grabbing; }
 
 .interaction-hint {
   position: fixed;
-  left: 32px;
-  bottom: 28px;
+  top: clamp(62px, 11svh, 104px);
+  left: 51.15%;
   z-index: 9;
+  width: max-content;
+  max-width: calc(100vw - 64px);
   margin: 0;
   color: rgba(255, 255, 255, .78);
   font-size: 12px;
   letter-spacing: .04em;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
 }
 
 .book-panel {
   position: fixed;
-  right: 32px;
+  top: auto;
   bottom: 32px;
+  left: 51.15%;
   z-index: 100;
-  width: min(320px, calc(100vw - 64px));
-  padding: 16px 22px;
+  width: min(421.2px, calc(81vw - 51.84px));
+  max-height: calc(100svh - 96px);
+  padding: 28px 30px 30px;
   box-sizing: border-box;
-  background: #fff;
-  color: #000;
-  border-radius: 12px;
+  overflow-y: auto;
+  background: transparent;
+  color: #fff;
+  border: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(16px);
+  transform: translate(-50%, calc(100% + 32px)) scale(.6762);
+  transform-origin: center bottom;
   pointer-events: none;
   transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s;
 }
@@ -131,75 +148,68 @@ canvas:active { cursor: grabbing; }
 .book-panel.is-visible {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translate(-50%, 0) scale(.6762);
   pointer-events: auto;
   transition-delay: 0s;
 }
 
-.book-number,
-.book-author {
-  margin: 0;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  line-height: 1.32;
-  text-transform: uppercase;
-}
-
 .book-heading {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin: 9px 0 5px;
-  white-space: nowrap;
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px 12px;
 }
 
 .book-panel h1 {
-  min-width: 0;
+  min-width:0;
   margin: 0;
-  font-size: clamp(13.34px, 1.65vw, 21px);
-  line-height: 1.13;
-  letter-spacing: -.04em;
+  font: 500 clamp(14.45px, 1.785vw, 24.65px)/1.05 "Montagu Slab", "Gowun Batang", Georgia, "Times New Roman", serif;
+  font-optical-sizing:auto;
+  letter-spacing: -.02em;
+  white-space:nowrap;
 }
 
-.book-heading .book-author {
-  flex: 0 0 auto;
+.book-byline {
+  flex:0 0 auto;
+  margin:0;
+  color:rgba(255,255,255,.76);
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.04em;
+  line-height:1.3;
+  white-space:nowrap;
 }
 
 .book-details {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: clamp(15.18px, 4.56vw, 21.24px);
-  margin: 15px 0 0;
-  padding-top: 13px;
-  border-top: 1px solid rgba(0, 0, 0, .2);
-}
-
-.book-panel.has-expanded-details .book-details {
-  gap: clamp(18.975px, 5.7vw, 26.55px);
+  margin: 30px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, .72);
 }
 
 .book-details div {
-  flex: 0 0 auto;
-  text-align: left;
+  display: grid;
+  grid-template-columns: minmax(82px, .8fr) minmax(0, 1.5fr);
+  align-items: baseline;
+  gap: 18px;
+  padding: 11px 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .24);
 }
 
 .book-details dt {
-  margin-bottom: 5px;
-  font-size: 8px;
+  margin: 0;
+  font-size: 10px;
   font-weight: 400;
   letter-spacing: .1em;
-  line-height: 1.32;
+  line-height: 1.25;
   text-transform: uppercase;
 }
 
 .book-details dd {
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 1.32;
-  white-space: nowrap;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 600px) {
@@ -212,59 +222,44 @@ canvas:active { cursor: grabbing; }
   }
 
   .interaction-hint {
-    display: block;
-    left: 50%;
-    bottom: 20px;
-    width: max-content;
     max-width: calc(100vw - 40px);
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, calc(100% + 28px));
-    transition: opacity .32s ease, transform .42s cubic-bezier(.22,.75,.24,1), visibility 0s linear .42s;
-  }
-
-  .interaction-hint.is-visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0);
-    transition-delay: 0s;
   }
 
   .book-panel {
     right: auto;
     bottom: 20px;
-    left: 50%;
-    width: min(74.8vw, 292px);
+    width: min(calc(81vw - 29.16px), 340.2px);
     max-height: calc(100svh - 90px);
-    padding: 12px 16.5px;
-    border-radius: 12px;
-    transform: translate(-50%, calc(100% + 28px));
+    padding: 21px 20px 22px;
+    transform: translate(-50%, calc(100% + 28px)) scale(.74382);
+    transform-origin:center bottom;
     transition: opacity .32s ease, transform .42s cubic-bezier(.22,.75,.24,1), visibility 0s linear .42s;
   }
 
   .book-panel.is-visible {
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) scale(.74382);
     transition-delay: 0s;
   }
 
   .book-panel h1 {
-    font-size: clamp(17px, 5.4vw, 21px);
+    font-size: clamp(11.475px, 4.01625vw, 16.83px);
   }
 
-  .book-details {
-    gap: clamp(19.734px, 5.928vw, 27.612px);
-  }
-
-  .book-panel.has-expanded-details .book-details {
-    gap: clamp(24.6675px, 7.41vw, 34.515px);
+  .book-heading { gap:6px 9px; }
+  .book-byline { font-size:9px; }
+  .book-details { margin-top:24px; }
+  .book-details div {
+    grid-template-columns:72px minmax(0, 1fr);
+    gap:14px;
+    padding:9px 0 10px;
   }
 
   .book-details dt {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .book-details dd {
-    font-size: 10px;
+    font-size: 11px;
   }
 
 }
